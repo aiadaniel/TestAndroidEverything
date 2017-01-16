@@ -54,6 +54,7 @@ public class PinPuView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         //mPaint.setStrokeWidth(10);
+        //mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         mPaint.setColor(mColor);
         mPaint.setStyle(Paint.Style.FILL);
 //        for (int i = 0;i < mNums;i++) {//calc in onDraw
@@ -88,8 +89,8 @@ public class PinPuView extends View {
         mWidth = (getWidth()-paddingLeft-paddingRight)/7.f;
         for (int i = 0;i < mNums;i++) {//calc in onDraw
             float left = mWidth*(2*i+1);
-            mRectFs[i] = new RectF(left,getRand()+getPaddingTop(),left+mWidth,getHeight()-getPaddingBottom());
-            canvas.drawRect(mRectFs[i],mPaint);
+            //mRectFs[i].set(left,getRand()+getPaddingTop(),left+mWidth,getHeight()-getPaddingBottom());
+            canvas.drawRect(left,getRand()+getPaddingTop(),left+mWidth,getHeight()-getPaddingBottom(),mPaint);
         }
 
         //canvas.drawRect(0,10,10,0,mPaint);
