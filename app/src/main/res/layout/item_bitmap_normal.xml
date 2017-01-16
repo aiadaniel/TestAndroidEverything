@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:testanything="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal">
+
+    <com.vigorous.widget.LoadingImageView
+        android:id="@+id/iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        testanything:loadingOriention="SWIPE_H"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/tv_who"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:text="xxx"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_publish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:text="yyy"/>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:text="type"/>
+    </LinearLayout>
+
+</LinearLayout>

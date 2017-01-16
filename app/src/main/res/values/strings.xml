@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TestAndroidEverything</string>
+    <string name="btn_customtab">custom tab</string>
+    <string name="btn_actionbar">actionbar</string>
+    <string name="btn_loadbitmap">loadbitmap</string>
+    <string name="btn_db">db</string>
+    <string name="btn_touchevent">touchevent</string>
+    <string name="btn_scroll">scroll issue</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="btn_pathbtn">path btn</string>
+    <string name="btn_linepath">sign </string>
+
+    <string name="retry_refresh">点击刷新</string>
+    <string name="title_activity_path_button">PathButtonActivity</string>
+</resources>

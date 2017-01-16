@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vigorous.widget.TestTouchEventViewgroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_touch_event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vigorous.widget.TestTouchEventView
+        android:id="@+id/emtpy_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!--<com.vigorous.widget.TestTouchEventView-->
+        <!--android:id="@+id/empty_view_below"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="300dp" />-->
+
+</com.vigorous.widget.TestTouchEventViewgroup>

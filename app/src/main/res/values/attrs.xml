@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="loadingOrient">
+        <attr name="loadingOriention" format="reference|integer">
+            <enum name="SWIPE_V" value="1"/>
+            <enum name="SWIPE_H" value="2"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
