@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,7 @@ public class PathButtonActivity extends BaseActivity {
 
     private int mProgress = 0;
 
-    Handler mHandler = new Handler() {
+    static Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

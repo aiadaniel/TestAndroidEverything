@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(i);
                 break;
             case R.id.btn_actionbar:
-                Intent ii = new Intent(this,ActionbarActivity.class);
+                Intent ii = new Intent(this,AnimationActivity.class);
                 startActivity(ii);
                 break;
             case R.id.btn_loadbitmap:

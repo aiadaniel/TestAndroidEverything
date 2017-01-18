@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -35,8 +35,6 @@ import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
 //use to test OOM
@@ -53,17 +51,23 @@ public class LoadBitmapActivity extends BaseActivity implements SwipeRefreshLayo
     List<BitmapEntity> mBitmapEntities = new ArrayList<BitmapEntity>();
 
     StringBuilder urlBuilder = new StringBuilder(apiUrl);
+    MyHandler handler = new MyHandler(this);
 
-    private Handler handler = new Handler() {
+    private static class MyHandler extends Handler {
+        WeakReference<LoadBitmapActivity> mLoadBitmapActivityWeakReference;
+        public MyHandler(LoadBitmapActivity activity) {
+            mLoadBitmapActivityWeakReference = new WeakReference<LoadBitmapActivity>(activity);
+        }
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            LoadBitmapActivity activity = mLoadBitmapActivityWeakReference.get();
             switch (msg.what) {
                 case 0x1:
                     String response = (String) msg.obj;
                     //Log.d(TAG, response);
-                    parseJson(response);
-                    mAdapter.setBitmapLists(mBitmapEntities);
+                    activity.parseJson(response);
+                    activity.mAdapter.setBitmapLists(activity.mBitmapEntities);
                     //testDownloadMgr();
                     break;
                 default:

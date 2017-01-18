@@ -23,7 +23,7 @@
         <activity
             android:name=".CustomTabActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActionbarActivity" />
+        <activity android:name=".AnimationActivity" />
         <activity android:name=".LoadBitmapActivity" />
         <activity android:name=".DBActivity" />
         <activity android:name=".TouchEventActivity" />

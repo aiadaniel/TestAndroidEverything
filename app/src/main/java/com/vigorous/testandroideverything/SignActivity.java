@@ -2,21 +2,13 @@ package com.vigorous.testandroideverything;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.Toast;
 
 import com.vigorous.widget.LinePathView;
 
 import java.io.IOException;
-
-/**
- * Created by lxm on 2017/1/2.
- */
 
 public class SignActivity extends BaseActivity implements View.OnClickListener {
     Button btnClear, btnSave, btnChangeColor, btnChangeWidth;
