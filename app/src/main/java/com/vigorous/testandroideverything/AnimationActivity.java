@@ -13,6 +13,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,13 +47,22 @@ public class AnimationActivity extends ActionBarActivity {
         });
         mRoundProgress.startProgress();
         mImageView = (ImageView) findViewById(R.id.gift_image_view);
+
+        //below is test view animation
+        //loadAnimation(R.anim.tran_in);
+        //loadAnimation(R.anim.alpha_in);//这里当把两个同时打开时发现最终只执行了一个,所以要嘛在一个xml里面定义多个，要嘛使用animationSet
+        //loadAnimation(R.anim.scale_in);
+        //loadAnimation(R.anim.rotate_in);
+        loadMultiAnimation(R.anim.tran_in,R.anim.alpha_in,R.anim.scale_in,R.anim.rotate_in);
+
+        //below is test object animation
         //startGiftAnimation();
         //startGiftAnimation2();
         //startGiftAnimation3();
 
         //valueAnimation();
 
-        multiAnimation();
+        //multiAnimation();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,6 +70,25 @@ public class AnimationActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+    public void loadAnimation(int resid) {
+        Animation animation = AnimationUtils.loadAnimation(this,resid);
+        //animation.setDuration(1000);
+        mImageView.startAnimation(animation);
+    }
+
+    public void loadMultiAnimation(int ...res) {
+        AnimationSet animationSet = new AnimationSet(true);
+        for (int i =0;i<res.length;i++) {
+            Animation animation = AnimationUtils.loadAnimation(this,res[i]);
+            animationSet.addAnimation(animation);
+        }
+        //mImageView.startAnimation(animationSet);
+        mImageView.setAnimation(animationSet);
+        animationSet.startNow();
+    }
+
+    //============================================================================
 
 
 

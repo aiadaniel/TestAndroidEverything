@@ -13,7 +13,8 @@ import com.vigorous.utils.StorageUtil;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     //TextView mTv1;
-    Button mBtnCustomTab,mBtnActionbar,mBtnLoadBitmap,mBtnDb,mBtnTouchEvent,mBtnScroll,mPathBtn,mSignBtn;
+    Button mBtnCustomTab,mBtnActionbar,mBtnLoadBitmap,mBtnDb,mBtnTouchEvent,mBtnScroll,mPathBtn,mSignBtn
+            ,mBtnBottomTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mPathBtn.setOnClickListener(this);
         mSignBtn = (Button) findViewById(R.id.btn_linepath);
         mSignBtn.setOnClickListener(this);
+        mBtnBottomTab = (Button) findViewById(R.id.btn_bottom_tab);
+        mBtnBottomTab.setOnClickListener(this);
         if (BuildConfig.DEBUG)
             Log.d("11111","IS DEBUG MODE");
 
@@ -105,6 +108,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_linepath:
                 Intent viii = new Intent(this,SignActivity.class);
                 startActivity(viii);
+                break;
+            case R.id.btn_bottom_tab:
+                Intent starter = new Intent(this, BottomTabActivity.class);
+                startActivity(starter);
                 break;
             default:break;
         }

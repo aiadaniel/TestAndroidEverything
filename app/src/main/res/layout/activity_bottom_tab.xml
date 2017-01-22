@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_bottom_tab"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        
+        <TextView
+            android:id="@+id/tv_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_chat"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textColor="@drawable/tab_text_bg"
+            android:text="聊天"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_contacts"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textColor="@drawable/tab_text_bg"
+            android:text="联系人"
+            />
+
+        <TextView
+            android:id="@+id/tv_open"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_open"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textColor="@drawable/tab_text_bg"
+            android:text="打开"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_settings"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textColor="@drawable/tab_text_bg"
+            android:text="设置"
+            />
+        
+    </LinearLayout>
+
+</RelativeLayout>

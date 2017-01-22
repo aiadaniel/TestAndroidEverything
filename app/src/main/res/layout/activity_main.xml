@@ -23,7 +23,7 @@
         android:layout_below="@+id/btn_customtab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_actionbar"/>
+        android:text="@string/btn_animation"/>
     <Button
         android:id="@+id/btn_loadbitmap"
         android:layout_below="@+id/btn_actionbar"
@@ -62,5 +62,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_linepath"/>
+
+    <Button
+        android:id="@+id/btn_bottom_tab"
+        android:layout_below="@+id/btn_linepath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_bottom_tab"/>
 
 </RelativeLayout>
