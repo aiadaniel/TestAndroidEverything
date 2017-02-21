@@ -5,11 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.vigorous.testandroideverything.com.vigorous.activities.MainActivity">
+    tools:context="com.vigorous.activities.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -110,6 +106,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btn_map_box"
                 android:text="mapbox_layer_color"/>
+
+            <Button
+                android:id="@+id/btn_map_box_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_map_box_layer_color"
+                android:text="mapbox_service"/>
 
         </LinearLayout>
 

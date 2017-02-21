@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     //TextView mTv1;
     Button mBtnCustomTab,mBtnActionbar,mBtnLoadBitmap,mBtnDb,mBtnTouchEvent,mBtnScroll,mPathBtn,mSignBtn
-            ,mBtnBottomTab,mBtnGesture,mBtnMvp,mBtnMapbox,mBtnMapboxLayerColor;
+            ,mBtnBottomTab,mBtnGesture,mBtnMvp,mBtnMapbox,mBtnMapboxLayerColor,mBtnMapboxService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +50,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnMapbox.setOnClickListener(this);
         mBtnMapboxLayerColor = (Button) findViewById(R.id.btn_map_box_layer_color);
         mBtnMapboxLayerColor.setOnClickListener(this);
+        mBtnMapboxService = (Button) findViewById(R.id.btn_map_box_service);
+        mBtnMapboxService.setOnClickListener(this);
         if (BuildConfig.DEBUG)
             Log.d("11111","IS DEBUG MODE");
 
@@ -139,6 +141,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_map_box_layer_color:
                 Intent XII = new Intent(this,MapboxLayerColorActivity.class);
                 startActivity(XII);
+                break;
+            case R.id.btn_map_box_service:
+                Intent XIII = new Intent(this,MapboxServiceActivity.class);
+                startActivity(XIII);
                 break;
             default:break;
         }

@@ -51,6 +51,8 @@
         </activity>
         <activity android:name="com.vigorous.activities.MapboxLayerColorActivity">
         </activity>
+        <activity android:name="com.vigorous.activities.MapboxServiceActivity">
+        </activity>
     </application>
 
 </manifest>
