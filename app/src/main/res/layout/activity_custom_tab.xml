@@ -5,7 +5,7 @@
     android:id="@+id/activity_custom_tab"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vigorous.testandroideverything.CustomTabActivity">
+    tools:context="com.vigorous.testandroideverything.com.vigorous.activities.CustomTabActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

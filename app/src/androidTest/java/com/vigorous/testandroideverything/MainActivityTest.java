@@ -4,6 +4,8 @@ import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 
+import com.vigorous.activities.MainActivity;
+
 /**
  * Created by lxm .
  * 这是专门给activity的测试，可以模拟按键事件等，但要注意ui的测试需要跑在主线程

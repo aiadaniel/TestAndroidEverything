@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.vigorous.testandroideverything.PathButtonActivity"
+    tools:context="com.vigorous.testandroideverything.com.vigorous.activities.PathButtonActivity"
     tools:showIn="@layout/activity_path_button">
 
 </RelativeLayout>

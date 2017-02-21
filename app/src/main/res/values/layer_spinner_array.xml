@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="layer_spinner_array">
+        <item>Water</item>
+        <item>Building</item>
+    </string-array>
+</resources>

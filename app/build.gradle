@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.vigorous.testandroideverything"
-        minSdkVersion 11
-        targetSdkVersion 23
+        minSdkVersion 15// for test mapbox required 15+
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions {//for java 8
+            enabled false
+        }
     }
     buildTypes {
         release {
@@ -21,18 +25,35 @@ android {
             buildConfigField "boolean", "API_ENV", "true"
         }
     }
+
+    compileOptions {//for java8
+        //sourceCompatibility JavaVersion.VERSION_1_8
+        //targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 
 
 dependencies {
-    compile  'com.facebook.fresco:fresco:0.13.0+'
+    compile 'com.facebook.fresco:fresco:0.13.0+'
     //compile project(':drawee-backends:drawee-pipeline')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile files('okhttp-3.4.1.jar')
+    //compile files('okio-1.11.0.jar')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:design:25.0.0'
     testCompile 'junit:junit:4.12'
+    //compile project(':retrofit') //暂时屏蔽，编译有问题
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit-adapters:2.1.0'
+    //compile 'com.squareup.retrofit2:adapter-java8:2.1.0'
+
+    //for developer mapbox
+    compile ('com.mapbox.mapboxsdk:mapbox-android-sdk:4.2.2@aar'){
+        transitive=true
+    }
 }
