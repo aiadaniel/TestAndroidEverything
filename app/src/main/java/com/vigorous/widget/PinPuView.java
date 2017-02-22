@@ -47,7 +47,7 @@ public class PinPuView extends View {
     }
 
     private void init(Context context) {
-        mNums = 3;//default
+        mNums = 4;//default
         mRectFs = new RectF[mNums];
 //        mWidth = 20;//calc in onDraw
         mColor = Color.BLACK;//default
@@ -86,7 +86,7 @@ public class PinPuView extends View {
         super.onDraw(canvas);
         float paddingLeft = getPaddingLeft();//记住自定义的view是怎样计算padding的
         float paddingRight = getPaddingRight();
-        mWidth = (getWidth()-paddingLeft-paddingRight)/7.f;
+        mWidth = (getWidth()-paddingLeft-paddingRight)/(2*mNums+1);
         for (int i = 0;i < mNums;i++) {//calc in onDraw
             float left = mWidth*(2*i+1);
             //mRectFs[i].set(left,getRand()+getPaddingTop(),left+mWidth,getHeight()-getPaddingBottom());

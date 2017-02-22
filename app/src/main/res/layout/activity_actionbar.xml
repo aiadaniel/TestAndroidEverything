@@ -15,7 +15,8 @@
         android:id="@+id/btn_test_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="testProgress"/>
+        android:text="testProgress"
+        tools:ignore="HardcodedText"/>
 
     <com.vigorous.widget.PinPuView
         android:layout_width="50dp"
@@ -33,8 +34,8 @@
 
     <ImageView
         android:id="@+id/gift_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/icon_flower"/>
 
 </LinearLayout>

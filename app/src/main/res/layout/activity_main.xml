@@ -27,91 +27,78 @@
                 android:id="@+id/btn_actionbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_customtab"
                 android:text="@string/btn_animation"/>
 
             <Button
                 android:id="@+id/btn_loadbitmap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_actionbar"
                 android:text="@string/btn_loadbitmap"/>
 
             <Button
                 android:id="@+id/btn_db"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_loadbitmap"
                 android:text="@string/btn_db"/>
 
             <Button
                 android:id="@+id/btn_touchevent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_db"
                 android:text="@string/btn_touchevent"/>
 
             <Button
                 android:id="@+id/btn_scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_touchevent"
                 android:text="@string/btn_scroll"/>
 
             <Button
                 android:id="@+id/btn_pathbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_scroll"
                 android:text="@string/btn_pathbtn"/>
 
             <Button
                 android:id="@+id/btn_linepath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_pathbtn"
                 android:text="@string/btn_linepath"/>
 
             <Button
                 android:id="@+id/btn_bottom_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_linepath"
                 android:text="@string/btn_bottom_tab"/>
 
             <Button
                 android:id="@+id/btn_gesture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_bottom_tab"
                 android:text="gesture"/>
 
             <Button
                 android:id="@+id/btn_mvp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_gesture"
                 android:text="mvp"/>
 
             <Button
                 android:id="@+id/btn_map_box"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_mvp"
                 android:text="mapbox"/>
 
             <Button
                 android:id="@+id/btn_map_box_layer_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_map_box"
                 android:text="mapbox_layer_color"/>
 
             <Button
                 android:id="@+id/btn_map_box_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_map_box_layer_color"
                 android:text="mapbox_service"/>
 
         </LinearLayout>

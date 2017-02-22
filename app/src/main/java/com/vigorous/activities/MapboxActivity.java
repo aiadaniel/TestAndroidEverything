@@ -12,10 +12,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.SupportMapFragment;
+import com.mapbox.mapboxsdk.offline.OfflineManager;
+import com.mapbox.mapboxsdk.offline.OfflineRegion;
+import com.mapbox.mapboxsdk.offline.OfflineRegionError;
+import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
+import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
 import com.mapbox.mapboxsdk.style.layers.CircleLayer;
 import com.mapbox.mapboxsdk.style.layers.FillLayer;
 import com.mapbox.mapboxsdk.style.layers.Layer;
@@ -31,6 +38,8 @@ import com.mapbox.services.commons.geojson.FeatureCollection;
 import com.mapbox.services.commons.geojson.LineString;
 import com.mapbox.services.commons.models.Position;
 import com.vigorous.testandroideverything.R;
+
+import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -52,6 +61,10 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.visibility;
 
 public class MapboxActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String tag = "11111";
+    // JSON encoding/decoding
+    public static final String JSON_CHARSET = "UTF-8";
+    public static final String JSON_FIELD_REGION_NAME = "FIELD_REGION_NAME";
+
     MapView mMapView;
     Button mBtnLayer;
 
@@ -79,7 +92,8 @@ public class MapboxActivity extends AppCompatActivity implements View.OnClickLis
                 //testAddLayer();
                 //testAddNewLayerBelowLabels();
                 //testAddClusteredGeoJsonSource(mMapboxMap);
-                testAddGeoJsonLine();
+                //testAddGeoJsonLine();
+                testOfflineMap();
             }
         });
         requestPermission();
@@ -311,6 +325,93 @@ public class MapboxActivity extends AppCompatActivity implements View.OnClickLis
         mMapboxMap.addLayer(lineLayer);
     }
 
+    private void testOfflineMap() {
+        // Set up the OfflineManager
+        OfflineManager offlineManager = OfflineManager.getInstance(this);
+
+        // Create a bounding box for the offline region
+        LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                .include(new LatLng(37.7897, -119.5073)) // Northeast
+                .include(new LatLng(37.6744, -119.6815)) // Southwest
+                .build();
+
+        // Define the offline region
+        OfflineTilePyramidRegionDefinition definition = new OfflineTilePyramidRegionDefinition(
+                mMapView.getStyleUrl(),
+                latLngBounds,
+                10,
+                20,
+                this.getResources().getDisplayMetrics().density);
+
+        // Set the metadata
+        byte[] metadata;
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put(JSON_FIELD_REGION_NAME, "Yosemite National Park");
+            String json = jsonObject.toString();
+            metadata = json.getBytes(JSON_CHARSET);
+        } catch (Exception exception) {
+            Log.e(tag, "Failed to encode metadata: " + exception.getMessage());
+            metadata = null;
+        }
+
+        // Create the region asynchronously
+        offlineManager.createOfflineRegion(
+                definition,
+                metadata,
+                new OfflineManager.CreateOfflineRegionCallback() {
+                    @Override
+                    public void onCreate(OfflineRegion offlineRegion) {
+                        offlineRegion.setDownloadState(OfflineRegion.STATE_ACTIVE);
+
+                        // Display the download progress bar
+                        //progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+                        //startProgress();
+
+                        // Monitor the download progress using setObserver
+                        offlineRegion.setObserver(new OfflineRegion.OfflineRegionObserver() {
+                            @Override
+                            public void onStatusChanged(OfflineRegionStatus status) {
+
+                                // Calculate the download percentage and update the progress bar
+                                double percentage = status.getRequiredResourceCount() >= 0
+                                        ? (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
+                                        0.0;
+
+                                if (status.isComplete()) {
+                                    // Download complete
+                                    //endProgress("Region downloaded successfully.");
+                                    Log.d(tag, "====end progress & success");
+                                } else if (status.isRequiredResourceCountPrecise()) {
+                                    // Switch to determinate state
+                                    //setPercentage((int) Math.round(percentage));
+                                    Log.d(tag, "====down progress " + (int) Math.round(percentage));
+                                }
+                            }
+
+                            @Override
+                            public void onError(OfflineRegionError error) {
+                                // If an error occurs, print to logcat
+                                Log.e(tag, "====onError reason: " + error.getReason());
+                                Log.e(tag, "====onError message: " + error.getMessage());
+                            }
+
+                            @Override
+                            public void mapboxTileCountLimitExceeded(long limit) {
+                                // Notify if offline region exceeds maximum tile count
+                                Log.e(tag, "====Mapbox tile count limit exceeded: " + limit);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        Log.e(tag, "====Error: " + error);
+                    }
+                });
+
+    }
+
     //=============================================================需要处理运行时权限请求
     private void requestPermission() {
         // Here, thisActivity is the current activity
@@ -361,7 +462,7 @@ public class MapboxActivity extends AppCompatActivity implements View.OnClickLis
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
+                break;
             }
 
             // other 'case' lines to check for other

@@ -1,4 +1,4 @@
-include ':app', ':retrofit'
+include ':app'//, //':retrofit'
 //,':imagepipeline-base-test', ':imagepipeline', ':imagepipeline-test', ':imagepipeline-base', ':fbcore', ':drawee', ':drawee-backends:drawee-pipeline', ':imagepipeline-backends:imagepipeline-okhttp', ':animated-gif', ':animated-base-test', ':drawee-backends:drawee-volley', ':samples:gestures', ':samples:transition', ':samples:uriapp', ':samples:round', ':samples:demo', ':animated-webp', ':animated-base', ':samples:animation', ':static-webp', ':animated-base-support', ':samples:zoomableapp', ':samples:comparison', ':imagepipeline-backends:imagepipeline-okhttp3', ':samples:zoomable', ':samples:scrollperf', ':imagepipeline-backends:imagepipeline-volley', ':tools:stetho'
 //project(':imagepipeline-backends:imagepipeline-okhttp').projectDir = new File('fresco/imagepipeline-backends/imagepipeline-okhttp')
 //project(':animated-gif').projectDir = new File('fresco/animated-gif')

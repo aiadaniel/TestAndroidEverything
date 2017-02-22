@@ -13,10 +13,10 @@
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        mapbox:center_latitude="33.39243835"
-        mapbox:center_longitude="-118.38265415000001"
-        mapbox:zoom="13.448986053466797"
-        app:style_url="@string/style_outdoors"/>
+        mapbox:center_latitude="37.73359"
+        mapbox:center_longitude="-119.58410"
+        mapbox:zoom="10"
+        app:style_url="@string/style_mapbox_streets"/>
 
     <Button
         android:id="@+id/btn_layer"

@@ -47,7 +47,7 @@ public class AnimationActivity extends ActionBarActivity {
             }
         });
         mRoundProgress.startProgress();
-        mImageView = (ImageView) findViewById(R.id.gift_image_view);
+        mImageView = (ImageView) findViewById(R.id.gift_image_view);//测试了不同的布局参数以及不同dpi目录下放资源的效果。。。
 
         //below is test view animation
         //loadAnimation(R.anim.tran_in);
