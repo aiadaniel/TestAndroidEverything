@@ -2,18 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.vigorous.testandroideverything">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:name=".MyApplication"
+        android:name="com.vigorous.activities.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.vigorous.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,23 +24,42 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CustomTabActivity"
+            android:name="com.vigorous.activities.CustomTabActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".AnimationActivity"/>
-        <activity android:name=".LoadBitmapActivity"/>
-        <activity android:name=".DBActivity"/>
-        <activity android:name=".TouchEventActivity"/>
-        <activity android:name=".ScrollActivity"/>
+        <activity android:name="com.vigorous.activities.AnimationActivity"/>
+        <activity android:name="com.vigorous.activities.LoadBitmapActivity"/>
+        <activity android:name="com.vigorous.activities.DBActivity"/>
+        <activity android:name="com.vigorous.activities.TouchEventActivity"/>
+        <activity android:name="com.vigorous.activities.ScrollActivity"/>
+        <activity android:name="com.vigorous.activities.GestureActivity"/>
         <activity
-            android:name=".PathButtonActivity"
+            android:name="com.vigorous.activities.PathButtonActivity"
             android:label="@string/title_activity_path_button"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".SignActivity"/>
+        <activity android:name="com.vigorous.activities.SignActivity"/>
         <activity
-            android:name=".BottomTabActivity"
+            android:name="com.vigorous.activities.BottomTabActivity"
             android:label="@string/title_activity_bottom_tab"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name="com.mvp.MvpActivity">
+        </activity>
+
+        <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
+
+        <activity android:name="com.vigorous.activities.MapboxActivity">
+        </activity>
+        <activity android:name="com.vigorous.activities.MapboxLayerColorActivity">
+        </activity>
+        <activity android:name="com.vigorous.activities.MapboxServiceActivity">
+        </activity>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${CHANNEL_NAME}"></meta-data>
+
     </application>
+
+
 
 </manifest>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.vigorous.testandroideverything.ScrollActivity">
+    tools:context="com.vigorous.activities.ScrollActivity">
 
     <com.vigorous.widget.TwoScrollviewLayout
         android:id="@+id/two_scroll_view_layout"
