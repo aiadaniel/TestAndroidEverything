@@ -24,7 +24,7 @@ android {
         config {
             keyAlias 'mykeystorealias'
             keyPassword '111222'
-            storeFile file('F:/AndroidStudioProjects/TestAndroidEverything/app/mykeystore.jks')
+            storeFile file(projectDir.absolutePath+'/mykeystore.jks')
             storePassword '111222'
         }
     }
